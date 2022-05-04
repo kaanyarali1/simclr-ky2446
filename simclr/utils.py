@@ -14,20 +14,20 @@ def train_simclr(train_loader, model, criterion, optimizer,epochs,batch_size,sav
          optimizer = LARS(
             model.parameters(),
             lr=learning_rate,
-            weight_decay=weight_decay,
+            weight_decay=1e-6,
             exclude_from_weight_decay=["batch_normalization", "bias"],
         )
         # "decay the learning rate with the cosine decay schedule without restarts"
          scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, args.epochs, eta_min=0, last_epoch=-1
+            optimizer, 10, eta_min=0, last_epoch=-1
         )
     else:
         raise NotImplementedError
 
+    loss_list = [] 
     for epoch in range(epochs):
         stime = time.time()
         loss_epoch = 0
-        loss_list = [] 
         for step, ((x_i, x_j), _) in enumerate(train_loader):
             optimizer.zero_grad()
             x_i = x_i.cuda(non_blocking=True)
@@ -61,11 +61,11 @@ def train_simclr(train_loader, model, criterion, optimizer,epochs,batch_size,sav
 
 def train_ds(train_loader, val_loader, model, criterion, optimizer,epochs,save,path=None):
 
+    train_loss_list = [] 
     for epoch in range(epochs):
         stime = time.time()
         train_loss_epoch = 0
         train_accuracy_epoch = 0
-        train_loss_list = [] 
         for step, (x, y) in enumerate(train_loader):
             model.train()
             optimizer.zero_grad()
