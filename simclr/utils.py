@@ -62,6 +62,9 @@ def train_simclr(train_loader, model, criterion, optimizer,epochs,batch_size,sav
 def train_ds(train_loader, val_loader, model, criterion, optimizer,epochs,save,path=None):
 
     train_loss_list = [] 
+    train_acc_list = []
+    val_loss_list = [] 
+    val_acc_list = []
     for epoch in range(epochs):
         stime = time.time()
         train_loss_epoch = 0
@@ -91,45 +94,50 @@ def train_ds(train_loader, val_loader, model, criterion, optimizer,epochs,save,p
         avg_trainloss_epoch = train_loss_epoch /len(train_loader)
         train_accuracy_epoch = train_accuracy_epoch/len(train_loader)
         train_loss_list.append(avg_trainloss_epoch)
+        train_acc_list.append(train_accuracy_epoch)
         time_taken = (time.time()-stime)/60
-        print("Epoch: {} completed, average train loss: {}, average training_acc: {} time taken: {} mins".format(epoch,avg_trainloss_epoch,train_accuracy_epoch,time_taken))
+        if val_loader == None:
+            print("Epoch: {} completed, average train loss: {}, average training_acc: {} time taken: {} mins".format(epoch,avg_trainloss_epoch,train_accuracy_epoch,time_taken))
 
-    if val_loader != None:
+        if val_loader != None:
 
-        model.eval()
-        with torch.no_grad():
-            val_loss_epoch = 0
-            val_loss_list = [] 
-            for step, (x, y) in enumerate(val_loader):
-                x = x.to(device = 'cuda:0', dtype = torch.float)
-                y = y.to(device = 'cuda:0')
+            model.eval()
+            with torch.no_grad():
+                val_loss_epoch = 0
+                val_accuracy_epoch = 0
+                for step, (x, y) in enumerate(val_loader):
+                    x = x.to(device = 'cuda:0', dtype = torch.float)
+                    y = y.to(device = 'cuda:0')
 
-                preds = model(x)
+                    preds = model(x)
 
-                val_loss = criterion(preds, y)
+                    val_loss = criterion(preds, y)
 
-                predicted = preds.argmax(1)
-                val_acc = (predicted == y).sum().item() / y.size(0)
-                val_accuracy_epoch += val_acc
+                    predicted = preds.argmax(1)
+                    val_acc = (predicted == y).sum().item() / y.size(0)
+                    val_accuracy_epoch += val_acc
 
-                if step % 50 == 0 and step != 0:
-                    print("Epoch: {}, step: {}/{}, validation_loss: {}, validation_acc: {}".format(epoch,step,len(val_loader),val_loss.item(),val_acc))
+                    #if step % 50 == 0 and step != 0:
+                        #print("Epoch: {}, step: {}/{}, validation_loss: {}, validation_acc: {}".format(epoch,step,len(val_loader),val_loss.item(),val_acc))
 
-                val_loss_epoch += val_loss.item()
+                    val_loss_epoch += val_loss.item()
 
-            avg_valloss_epoch = val_loss_epoch /len(val_loader)
-            val_accuracy_epoch = val_accuracy_epoch/len(val_loader)
-            val_loss_list.append(avg_valloss_epoch)
-            time_taken = (time.time()-stime)/60
-            print("Epoch: {} completed, average validation loss: {}, average validation_acc: {} time taken: {} mins".format(epoch,avg_loss_epoch,train_accuracy_epoch,time_taken))
+                avg_valloss_epoch = val_loss_epoch /len(val_loader)
+                val_accuracy_epoch = val_accuracy_epoch/len(val_loader)
+                val_loss_list.append(avg_valloss_epoch)
+                val_acc_list.append(val_accuracy_epoch)
+                time_taken = (time.time()-stime)/60
+                print("Epoch: {} completed, average train loss: {}, average training_acc: {}, average validation loss: {}, average validation_acc: {} time taken: {} mins".format(epoch,avg_trainloss_epoch,train_accuracy_epoch,avg_valloss_epoch,val_accuracy_epoch,time_taken))
 
-        if save:
-            torch.save(model.state_dict(), path)
-        return model,train_loss_list,train_accuracy_epoch,val_loss_list,val_accuracy_epoch
-    else:
-        if save:
-            torch.save(model.state_dict(), path)
-    return model,train_loss_list,train_accuracy_epoch
+    if save:
+        torch.save(model.state_dict(), path)
+
+    if val_loader == None:
+        return model,train_loss_list,train_acc_list,None,None
+
+    return model,train_loss_list,train_acc_list,val_loss_list,val_acc_list
+
+
 
 def test_ds(model, test_loader):
     model.eval()
