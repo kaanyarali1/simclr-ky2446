@@ -25,9 +25,7 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
 
 ![image](https://user-images.githubusercontent.com/77569866/167318519-126a0a3b-899a-4f93-b80b-377a8b861f21.png)
 
-### PyTorch
-### GPUs : A100, V100, and P100
-### Platform: GCP and Google Colab
+### PyTorch ### GPUs used: A100, V100, and P100 ### Platform: GCP and Google Colab
 
 
 
