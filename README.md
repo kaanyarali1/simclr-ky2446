@@ -15,3 +15,5 @@ In the first paper (SimClr), model will learn its representation by contrastive 
 
 In the second paper, it takes the class-wise supervision to the extreme and learns a feature representation that discriminates among individual instances.
 This problem is formulated as a non-parametric classification problem at the instance-level, and noisecontrastive estimation is used to tackle the computational challenges imposed by the large number of instance classes.  A memory bank is also implemented to store the feature embeddings of each instance and k nearest neighbor is performed in downstream classification task.
+
+![image](https://user-images.githubusercontent.com/77569866/167318417-b3db88fb-312f-4f0e-81da-46dfa6aedb51.png)
