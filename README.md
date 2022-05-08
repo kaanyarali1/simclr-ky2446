@@ -53,6 +53,49 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
 
 ![image](https://user-images.githubusercontent.com/77569866/167320856-0204f3c6-e34d-47cc-aad2-f7ec06a6fe16.png)
 
+# Organization of this directory
+```
+.
+├── E6040.2022Spring.kaan.report.ky2446.pdf
+├── README.md
+├── requirements.txt
+├── files
+    ├── kaggle_testlist
+    ├── label_sorted
+    ├── kaggle-template.csv
+├── predictionmodels
+    ├── method1
+        ├── model1.csv
+        ├── model2.csv
+    ├── method2
+        ├── model1.csv
+        ├── model2.csv
+    ├── method3
+        ├── model1.csv
+        ├── model2.csv
+    ├── method4
+        ├── model1.csv
+        ├── model2.csv
+├── notebooks
+    ├── method1
+        ├── method1-model1.ipynb
+        ├── method1-model2.ipynb
+    ├── method2
+        ├── method2-model1.ipynb
+        ├── method2-model2.ipynb
+    ├── method3
+        ├── method3-model1.ipynb
+        ├── method3-model2.ipynb
+    ├── method4
+        ├── method4-model1.ipynb
+        ├── method4-model2.ipynb
+    ├── method5
+        ├── method5.ipynb
+└── utils
+    ├── frame_extraction.ipynb 
+    ├── test-fname-prep.ipynb 
+    ├── csv_processor.ipynb
+
 
 
 
