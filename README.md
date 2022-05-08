@@ -19,3 +19,7 @@ This problem is formulated as a non-parametric classification problem at the ins
 ![image](https://user-images.githubusercontent.com/77569866/167318417-b3db88fb-312f-4f0e-81da-46dfa6aedb51.png)
 
 ### CIFAR 10
+The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research.[1][2] The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes. 
+
+![image](https://user-images.githubusercontent.com/77569866/167318519-126a0a3b-899a-4f93-b80b-377a8b861f21.png)
+
