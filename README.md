@@ -1,4 +1,4 @@
-# Representation Learning without any label
+# Representation Learning 
 Kaan Yarali (ky2446)
 ## A Simple Framework for Contrastive Learning of Visual Representations 
 (https://arxiv.org/pdf/2002.05709.pdf) <br>
