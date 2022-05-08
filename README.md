@@ -43,6 +43,18 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
 
 ![image](https://user-images.githubusercontent.com/77569866/167318828-3114b741-5473-44ea-a11f-cb2dc8567bdb.png)
 
+![image](https://user-images.githubusercontent.com/77569866/167320793-dc6f8a85-273d-46ed-9a7f-71f2644b4f9e.png)
+
+![image](https://user-images.githubusercontent.com/77569866/167320826-4c6516d2-8a86-4e10-80c5-aaeb13ac0fe0.png)
+
+![image](https://user-images.githubusercontent.com/77569866/167320846-b0779251-4f5d-42cb-b80f-d9a57643f6ae.png)
+
+![image](https://user-images.githubusercontent.com/77569866/167320853-91eeda09-71dd-4ca7-a2c3-0ddfe12b4f84.png)
+
+![image](https://user-images.githubusercontent.com/77569866/167320856-0204f3c6-e34d-47cc-aad2-f7ec06a6fe16.png)
+
+
+
 
 
 
