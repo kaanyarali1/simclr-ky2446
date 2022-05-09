@@ -15,6 +15,8 @@ All the model weights trained on this project can be found in this Google Drive 
 All the training logs on this project can be found in this Google Drive Link.
 (https://drive.google.com/drive/folders/1bR-6sMhYgHrqFsHZCSm5rjxC75F7j0MX?usp=sharing)
 
+For example commands for this project, check the notebooks under the example-notebooks section. I also pushed the notebooks used for training.
+
 
 In this project, "A Simple Framework for Contrastive Learning of Visual Representations" and "Unsupervised Feature Learning via Non-Parametric Instance Discrimination" are implemented. Labeling data is a very challenging process since it is expensive, time-consuming and can make privacy issues. Recently, self-supervised learning has been heavily used to model the representation of the unlabeled data, without any human annotation. The goal of this project is to train the models using a self-supervised learning approach to learn good feature representations with unlabeled data and compare their performance with the models trained in fully supervised learning fashion. <br>
 
@@ -71,6 +73,10 @@ For linear evaluation, SimClr outperformed both supervised approach and the inst
     ├── dataloader
         ├── Cifar10Instance.py
         ├── dataloader.py
+    ├── example-notebooks
+        ├── Example_InstanceLevelClassification.ipynb
+        ├── Example_SimClr.ipynb
+        ├── Example_SimClr_Downstream.ipynb
     ├── instance-discrim
         ├── dloader
             ├── dloadertest.py
