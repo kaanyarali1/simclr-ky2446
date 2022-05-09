@@ -104,7 +104,5 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
             ├── plainResNet50TrainAllImagenet.ipynb
             ├── plainResNet50TrainLinear.ipynb
             ├── plainResNet50TrainLinearImagenet.ipynb
-        ├── plain-training-logs
-    ├── training-logs
     ├── augment.py
     ├── utils.py
