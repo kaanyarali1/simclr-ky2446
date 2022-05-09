@@ -56,45 +56,56 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
 # Organization of this directory
 ```
 .
-├── E6040.2022Spring.kaan.report.ky2446.pdf
 ├── README.md
 ├── requirements.txt
-├── files
-    ├── kaggle_testlist
-    ├── label_sorted
-    ├── kaggle-template.csv
-├── predictionmodels
-    ├── method1
-        ├── model1.csv
-        ├── model2.csv
-    ├── method2
-        ├── model1.csv
-        ├── model2.csv
-    ├── method3
-        ├── model1.csv
-        ├── model2.csv
-    ├── method4
-        ├── model1.csv
-        ├── model2.csv
-├── notebooks
-    ├── method1
-        ├── method1-model1.ipynb
-        ├── method1-model2.ipynb
-    ├── method2
-        ├── method2-model1.ipynb
-        ├── method2-model2.ipynb
-    ├── method3
-        ├── method3-model1.ipynb
-        ├── method3-model2.ipynb
-    ├── method4
-        ├── method4-model1.ipynb
-        ├── method4-model2.ipynb
-    ├── method5
-        ├── method5.ipynb
-└── utils
-    ├── frame_extraction.ipynb 
-    ├── test-fname-prep.ipynb 
-    ├── csv_processor.ipynb
+├── simclr
+    ├── dataloader
+        ├── Cifar10Instance.py
+        ├── dataloader.py
+    ├── instance-discrim
+        ├── dloader
+            ├── dloadertest.py
+        ├── notebooks
+            ├── Unsupervised_k1024.ipynb
+            ├── Unsupervised_k256.ipynb
+            ├── Unsupervised_k512.ipynb
+        ├── dloader
+        ├── NCECriterion.py
+        ├── alias_multinomial.py
+        ├── utilsInstance.py
+    ├── layers
+        ├── Normalization.py
+        ├── identity.py
+        ├── linear.py
+        ├── projection.py  
+    ├── loss
+        ├── nxtent.py
+        ├── nxtentgit.py
+    ├── models
+        ├── ResNetCifar.py
+        ├── downstream.py
+        ├── downstreamnew.py
+        ├── resnet.py
+        ├── simclr.py
+    ├── notebooks
+        ├── dstream
+        ├── simclr
+    ├── optim
+        ├── LARS.py
+    ├── plain-models
+        ├── notebooks
+            ├── plainResNet50TrainAll.ipynb
+            ├── plainResNet50TrainAllImagenet.ipynb
+            ├── plainResNet50TrainLinear.ipynb
+            ├── plainResNet50TrainLinearImagenet.ipynb
+        ├── plain-training-logs
+    ├── training-logs
+    ├── augment.py
+    ├── utils.py
+    
+    
+    
+
 
 
 
