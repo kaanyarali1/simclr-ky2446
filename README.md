@@ -105,15 +105,3 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
     ├── training-logs
     ├── augment.py
     ├── utils.py
-    
-    
-    
-
-
-
-
-
-
-
-
-
