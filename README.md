@@ -9,7 +9,7 @@ Kaan Yarali (ky2446)
 ### GPUs used: A100, V100, and P100 
 ### Platform: GCP and Google Colab
 
-# GCP image configuration
+### GCP image configuration
 Operating System : Deep Learning on Linux
 Version: Debian 10 based Deep Learning VM for PyTorch CPU/GPU with CUDA 11.0 M90
 
