@@ -108,6 +108,18 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
             ├──CIFAR10_RES50_SIMCLR_BS256_PD128_ADAM.ipynb
             ├──CIFAR10_RES50_SIMCLR_BS256_PD64_ADAM.ipynb
         ├── simclr
+            ├──CIFAR10-RES50-SIMCLR-BS128-PD128-ADAM.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS128-PD128-LARS.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS128-PD64-ADAM.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS128-PD64-LARS.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS256-PD128-ADAM.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS256-PD128-LARS.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS256-PD64-ADAM.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS256-PD64-LARS.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS64-PD128-ADAM.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS64-PD128-LARS.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS64-PD64-ADAM.ipynb
+            ├──CIFAR10-RES50-SIMCLR-BS64-PD64-LARS.ipynb
     ├── optim
         ├── LARS.py
     ├── plain-models
