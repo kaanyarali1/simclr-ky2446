@@ -59,6 +59,9 @@ The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection 
 
 ![image](https://user-images.githubusercontent.com/77569866/167320856-0204f3c6-e34d-47cc-aad2-f7ec06a6fe16.png)
 
+# Observations
+For linear evaluation, SimClr outperformed both supervised approach and the instance level discrimination approach with a significant gap. Contrastive learning without labels enable model to learn discriminative features. However, the second paper approach (instance level discrimination) could get only % 20 percent accuracy on the test set so we understand that augmentations and selections of negative samples affect the model performance significantly. From supervised learning approaches, ResNet50 TrainAllLayers (imagenet weight init.) got the highest test accuracy. For fine-tuning comparison, I am currently training a model using the weights from this SimClr model (BS:256,PD:64,LARS) and it should be well noted that this time I am training all the layers not only the last linear layer. 
+
 # Organization of this directory
 ```
 .
