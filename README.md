@@ -9,6 +9,10 @@ Kaan Yarali (ky2446)
 ### GPUs used: A100, V100, and P100 
 ### Platform: GCP and Google Colab
 
+# GCP image configuration
+Operating System : Deep Learning on Linux
+Version: Debian 10 based Deep Learning VM for PyTorch CPU/GPU with CUDA 11.0 M90
+
 All the model weights trained on this project can be found in this Google Drive Link. 
 (https://drive.google.com/drive/folders/1LSGz-WAi87WbF3gI0tIVFgv8V136nhv3?usp=sharing)
 
@@ -33,7 +37,7 @@ This problem is formulated as a non-parametric classification problem at the ins
 Finally, four different models are also trained by supervised learning fashion to compare the performance of the results of paper 1 and paper 2.
 
 ### CIFAR 10 (Dataset Used)
-The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research.[1][2] The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes. 
+The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research. The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes. (https://www.cs.toronto.edu/~kriz/cifar.html)
 
 ![image](https://user-images.githubusercontent.com/77569866/167318519-126a0a3b-899a-4f93-b80b-377a8b861f21.png)
 
