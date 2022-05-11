@@ -2,6 +2,10 @@ import torch
 import torch.nn as nn
 
 
+"""
+this was an initial attempt to implement NX-Tent loss function. This is not used.
+this can be ignored!
+"""
 def nt_xent_loss(output1, output2, temperature):
 
 	out =  torch.cat([output1,output2],dim = 0)

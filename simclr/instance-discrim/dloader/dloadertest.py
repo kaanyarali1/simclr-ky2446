@@ -3,6 +3,10 @@ import torchvision
 import torchvision.transforms as transforms
 
 
+"""
+this dataloader is for final knn prediction of instance-level discrimination
+it returns all the labels for training set as a single python list, and test_loader for knn with desired batch size.
+"""
 def dloaders_test(batch_size):
 	tr = torchvision.transforms.Compose(
 	            [

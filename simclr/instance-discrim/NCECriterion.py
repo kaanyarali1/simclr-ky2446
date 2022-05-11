@@ -2,37 +2,36 @@ import torch
 from torch import nn
 
 eps = 1e-7
-
 class NCECriterion(nn.Module):
 
-    def __init__(self, nLem):
+    def __init__(self, indexSize):
         super(NCECriterion, self).__init__()
-        self.nLem = nLem
+        self.indexSize = indexSize
 
     def forward(self, x, targets):
-        batchSize = x.size(0)
+        
+        positive_denom_pre = 1 / float(self.indexSize) # calculate for the denominator part for nonparametric softmax
+        negative_denom_pre = 1 / float(self.indexSize) # calculate for the denominator part for nonparametric softmax
+
+        batch_size = x.size(0)
         K = x.size(1)-1
-        Pnt = 1 / float(self.nLem)
-        Pns = 1 / float(self.nLem)
         
-        # eq 5.1 : P(origin=model) = Pmt / (Pmt + k*Pnt) 
-        Pmt = x.select(1,0)
-        Pmt_div = Pmt.add(K * Pnt + eps)
-        lnPmt = torch.div(Pmt, Pmt_div)
+        probs_positive  = x.select(1,0) # select probabilities for positive samples 
+        probs_positive_denom = probs_positive.add(eps + K * positive_denom_pre)
+        final_positive_probs = torch.div(probs_positive, probs_positive_denom) # positive pair probabilities
         
-        # eq 5.2 : P(origin=noise) = k*Pns / (Pms + k*Pns)
-        Pon_div = x.narrow(1,1,K).add(K * Pns + eps)
-        Pon = Pon_div.clone().fill_(K * Pns)
-        lnPon = 1 - torch.div(Pon, Pon_div)
+        
+        probs_negative_denom = x.narrow(1,1,K).add(eps + K * negative_denom_pre) # calculate denom part of neg probs
+        probs_negative = probs_negative_denom.clone().fill_(K * negative_denom_pre)
+        final_negative_probs = 1 - torch.div(probs_negative, probs_negative_denom) # neg pair probs (1-pn)
      
-        # equation 6 in ref. A
-        lnPmt.log_()
-        lnPon.log_()
+        final_positive_probs.log_() # take logs for positive sample probs
+        final_negative_probs.log_() # take logs for negative sample probs
         
-        lnPmtsum = lnPmt.sum(0)
-        lnPonsum = lnPon.view(-1, 1).sum(0)
+        sum_pos = final_positive_probs.sum(0)
+        sum_neg = final_negative_probs.view(-1, 1).sum(0)
         
-        loss = - (lnPmtsum + lnPonsum) / batchSize
+        loss = - (sum_pos + sum_neg) / batch_size
         
         return loss
 

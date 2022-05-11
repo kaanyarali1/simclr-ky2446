@@ -2,6 +2,11 @@ from torchvision import datasets, transforms
 from torch.utils.data import Dataset, DataLoader
 from augment import TransformsSimCLR
 
+"""
+This dataloader if for instance-level classification task. we need index values for images in the dataset 
+so we wrote our custom dataloader.
+"""
+
 class Cifar10Instance(Dataset):
     def __init__(self):
 

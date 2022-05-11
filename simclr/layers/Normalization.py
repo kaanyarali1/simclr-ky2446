@@ -1,6 +1,9 @@
 import torch
 from torch import nn
 
+"""
+this layer makes L2 normalization to the input embedding.
+"""
 class Normalize(nn.Module):
 
     def __init__(self, lnorm=2):

@@ -4,7 +4,7 @@ from augment import TransformsSimCLR
 from torch.utils.data.sampler import SubsetRandomSampler
 import numpy as np
 
-def train_loader_simclr(dataset,batch_size):
+def train_loader_simclr(dataset,batch_size): # apply randomly sampled augmentations to the image for trainset
 
         if dataset == "CIFAR10":
 
@@ -25,7 +25,7 @@ def train_loader_simclr(dataset,batch_size):
         else:
                 pass
         
-def test_loader(dataset,batch_size):
+def test_loader(dataset,batch_size): # for test time, call test_transform. we will not do any augmentations at test time. 
 
         if dataset == "CIFAR10":
 
@@ -46,7 +46,7 @@ def test_loader(dataset,batch_size):
         else:
                 pass
 
-def get_testimgs_list(dataset):
+def get_testimgs_list(dataset): # this function is used if you need to retrieve all images and labels in a single python list format.
         if dataset == "CIFAR10":
                 test_dataset = torchvision.datasets.CIFAR10(
             root='./test-data',
@@ -56,7 +56,7 @@ def get_testimgs_list(dataset):
 
                 test_loader_list = torch.utils.data.DataLoader(
                     test_dataset,
-                            batch_size=len(test_dataset),
+                            batch_size=len(test_dataset), #set batch size to len(dataset) to get all images at once.
                             shuffle=False,
                             drop_last=True,
                             num_workers=2
@@ -65,8 +65,12 @@ def get_testimgs_list(dataset):
                 return test_images, test_labels
         else:
                 pass
+"""
+this loader is for downstream classification tasks. it returns both validation and train loader. it does not apply any
+augmentations for downstream task. 
 
-def train_loader_dstream(dataset,batch_size,valid_size,shuffle):
+"""
+def train_loader_dstream(dataset,batch_size,valid_size,shuffle): 
         if dataset == "CIFAR10":
 
                 train_dataset = torchvision.datasets.CIFAR10(
@@ -84,7 +88,7 @@ def train_loader_dstream(dataset,batch_size,valid_size,shuffle):
                 
                 train_idx, valid_idx = indices[split:], indices[:split]
                 train_sampler = SubsetRandomSampler(train_idx)
-                valid_sampler = SubsetRandomSampler(valid_idx)
+                valid_sampler = SubsetRandomSampler(valid_idx) #this is for shuffling the training set and seperating for validation set accordingly.
                 
                 train_loader = torch.utils.data.DataLoader(
                         train_dataset,
